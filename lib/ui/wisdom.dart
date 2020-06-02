@@ -28,13 +28,47 @@ class _WisdomState extends State<Wisdom> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(quotes[_index % quotes.length]),
-            FlatButton.icon(
-              onPressed: _showQuotes,
-              icon: Icon(Icons.wb_sunny),
-              label: Text('Make my day'),
-              color: Colors.purpleAccent.shade100,
+            Expanded(
+              child: Center(
+                child: Container(
+                    width: 350,
+                    height: 200,
+                    margin: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(14.5)),
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Text(
+                        quotes[_index % quotes.length],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 16.0),
+                      ),
+                    ))),
+              ),
             ),
+            Divider(
+              thickness: 1.3,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 18.0),
+              child: FlatButton.icon(
+                onPressed: _showQuotes,
+                icon: Icon(
+                  Icons.wb_sunny,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Make my day',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.purpleAccent.shade700,
+              ),
+            ),
+            Spacer()
           ],
         ),
       ),
